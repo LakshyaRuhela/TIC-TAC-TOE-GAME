@@ -16,9 +16,6 @@ const winningPosition = [
   [2, 4, 6],
 ];
 
-// function happy(){
-
-// }
 // Initialization of game
 function gameInit() {
   gameGrid = ["", "", "", "", "", "", "", "", ""];
@@ -31,7 +28,6 @@ function gameInit() {
   });
   newGameBtn.classList.remove("active");
   gameInfo.innerText = `Current Player - ${currentPlayer}`;
-
 }
 gameInit();
 
@@ -50,7 +46,7 @@ function checkGameOver() {
   winningPosition.forEach((position)=>{
     if((gameGrid[position[0]] != "" || gameGrid[position[1]] !="" || gameGrid[position[2]] != "") 
       && (gameGrid[position[0]] === gameGrid[position[1]]) && (gameGrid[position[1]] === gameGrid[position[2]])){
-         // cehck winner 
+         // check winner 
          if(gameGrid[position[0]] == "X"){
           answer ="X";
          }else{
@@ -72,7 +68,7 @@ function checkGameOver() {
     newGameBtn.classList.add("active");
     return;
   }
-// checking tied
+// checking tie
   let fillCount = 0;
   gameGrid.forEach((box)=>{
     if(box !== ""){
@@ -81,7 +77,7 @@ function checkGameOver() {
   });
 
   if(fillCount === 9){
-    gameInfo.innerText = " Game Tied !! Try Again ";
+    gameInfo.innerText = " Game Draw !! Try Again ";
     newGameBtn.classList.add("active");
   }
 
@@ -97,8 +93,7 @@ function handleClick(index) {
     // winning condition
     checkGameOver();
      
-    newGameBtn.classList.add("active");
-     
+    newGameBtn.classList.add("active");  
   }
 }
 
